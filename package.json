@@ -1,0 +1,32 @@
+{
+  "name": "streamsnippets",
+  "version": "1.0.0",
+  "description": "Stream Overlay for Twitch Clip Highlights",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/instafluff/StreamSnippets.git"
+  },
+  "keywords": [
+    "Instafluff",
+    "Stream",
+    "Snippets",
+    "Clips",
+    "Twitch",
+    "Livestream",
+    "Overlay",
+    "Highlights"
+  ],
+  "author": "Instafluff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/instafluff/StreamSnippets/issues"
+  },
+  "homepage": "https://github.com/instafluff/StreamSnippets#readme",
+  "dependencies": {
+    "webwebweb": "^1.4.10"
+  }
+}

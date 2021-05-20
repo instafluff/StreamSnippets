@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Stream Snippets by Instafluff</title>
+	<link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Open+Sans" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+	<script src="web/clips.js"></script>
+	<style>
+	html, body {
+		border: 0;
+		margin: 0;
+	}
+	iframe {
+		border: 0;
+	}
+	</style>
+</head>
+<body>
+	<iframe id="fluffy-clip" width="1280" height="720">
+	</iframe>
+	<script>
+	const params = new URLSearchParams( location.search );
+	ComfyJS.onChat = ( user, message, flags, self, extra ) => {
+		if( params.get( "chat" ) && flags.broadcaster || flags.mod ) {
+			showCount = 0;
+			if( message.includes( "twitch.tv/" ) ) {
+				message = message.split( "twitch.tv/" )[ 1 ];
+			}
+			SetClip( true, message );
+		}
+	};
+	ComfyJS.onCommand = ( user, command, message, flags ) => {
+		if( flags.broadcaster || flags.mod ) {
+			switch( command ) {
+			case "showclip":
+				if( message ) {
+					showCount = 0;
+					if( message.includes( "twitch.tv/" ) ) {
+						message = message.split( "twitch.tv/" )[ 1 ];
+					}
+					SetClip( true, message );
+					// var clip = document.querySelector( "#fluffy-clip" );
+					// clip.setAttribute( "src", "https://clips.twitch.tv/embed?parent=localhost&autoplay=true&clip=" + message );
+					// clip.style.display = "block";
+				}
+				break;
+			case "hideclip":
+				showCount = 0;
+				SetClip( false, "" );
+				break;
+			case "topclip":
+			case "topclips":
+				if( message ) {
+					let parts = message.split( " " );
+					TopClips( parts[ 0 ], parts.length > 1 ? parseInt( parts[ 1 ] ) : 1 );
+				}
+				break;
+			}
+		}
+	}
+	ComfyJS.Init( params.get( "channel" ) );
+	</script>
+</body>
+</html>
