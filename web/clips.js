@@ -79,7 +79,7 @@ async function SetClip( visible, id = "" ) {
 			}, clipInfo.duration * 1000 );
 		}
 		var clip = document.querySelector( "#fluffy-clip" );
-		clip.setAttribute( "src", "https://clips.twitch.tv/embed?parent=instafluff.tv&parent=www.instafluff.tv&tt_medium=clips_api&tt_content=embed&autoplay=true&clip=" + id );
+		clip.setAttribute( "src", "https://clips.twitch.tv/embed?parent=" + window.location.hostname + "&tt_medium=clips_api&tt_content=embed&autoplay=true&clip=" + id );
 		clip.style.display = "block";
 		showCount--;
 	}
