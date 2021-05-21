@@ -20,7 +20,7 @@
 	<script>
 	const params = new URLSearchParams( location.search );
 	ComfyJS.onChat = ( user, message, flags, self, extra ) => {
-		if( params.get( "chat" ) && ( flags.broadcaster || flags.mod ) ) {
+		if( ( params.get( "chat" ) === "true" ) && ( flags.broadcaster || flags.mod ) ) {
 			showCount = 0;
 			if( message.includes( "twitch.tv/" ) ) {
 				message = message.split( "twitch.tv/" )[ 1 ];
